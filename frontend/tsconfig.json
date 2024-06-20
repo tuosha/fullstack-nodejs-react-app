@@ -1,14 +1,21 @@
 {
   "compilerOptions": {
     "outDir": "./dist/",
-    "lib": ["es2017", "dom"],
     "noImplicitAny": true,
-    "module": "esnext",
-    "target": "es2015",
+    "noEmit": false,
+    "noEmitOnError": false,
+    "module": "ESNext",
+    "target": "es5",
     "jsx": "react-jsx",
     "allowJs": true,
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+  },
+  "ts-node": {
+    "transpileOnly": true,
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
   },
   "exclude": [
     "../node_modules"

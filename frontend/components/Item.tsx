@@ -1,6 +1,10 @@
 import React from 'react'
+interface ItemProps {
+    item: any,
+    onHandleDelete: (id: string) => void
+}
 
-const Item = ({item, onHandleDelete}) => {
+const Item = ({item, onHandleDelete}: ItemProps) => {
 	return (
 			<li key={item._id}>
 				<span>Title: {item.title} </span>
