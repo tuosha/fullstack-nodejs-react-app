@@ -28,13 +28,13 @@ const BaseForm = () => {
 
 	return (
 		<form className="form-inline"  id="base-form" ref={form}>
-			<InputText
-				options = {{
-					id: 'title',
-					labelTitle: 'Title',
-					placeHolder: 'Title'
-				}}
-			 />
+            <InputText
+                options = {{
+                    id: 'title',
+                    labelTitle: 'Title',
+                    placeHolder: 'Title'
+                }}
+             />
 			<InputText
 				options = {{
 					id: 'author',

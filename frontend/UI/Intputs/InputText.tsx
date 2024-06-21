@@ -1,29 +1,7 @@
-interface Props {
-    options: {
-        id?: string,
-        isLabel?: boolean,
-        labelTitle?: string,
-        labelClassName?: string,
-        inputClassName?: string
-        inputGroupClassName?: string,
-        placeHolder?: string,
-    }
-}
+import {InputTextProps, defaultInputTextProps} from "../uiTypes/uiTypes";
 
-const defaultProps: Partial<Props> = {
-    options: {
-        id: '',
-        isLabel: true,
-        labelTitle: '',
-        labelClassName: 'sr-only',
-        inputClassName: 'form-control mb-2 mr-sm-2',
-        inputGroupClassName: 'input-group',
-        placeHolder: '',
-    }
-}
-
-const InputText: React.FC<Props> = ({options}) => {
-    options = {...defaultProps.options, ...options}
+const InputText: React.FC<InputTextProps> = ({options}: InputTextProps) => {
+    options = {...defaultInputTextProps.options, ...options}
     const {id, isLabel, labelTitle, labelClassName, inputClassName, inputGroupClassName, placeHolder} = options
     const label = isLabel ?
         <label className={labelClassName}

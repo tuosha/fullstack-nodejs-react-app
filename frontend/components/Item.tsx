@@ -1,6 +1,10 @@
 import React from 'react'
 interface ItemProps {
-    item: any,
+    item: {
+        _id: string,
+        title: string,
+        author: string
+    },
     onHandleDelete: (id: string) => void
 }
 

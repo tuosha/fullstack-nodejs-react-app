@@ -1,28 +1,7 @@
-type Props = {
-    onFileChange: React.ChangeEventHandler<HTMLInputElement>
-    options: {
-        id: string,
-        isLabel?: boolean,
-        labelTitle?: string,
-        labelClassName?: string,
-        inputClassName?: string
-        inputGroupClassName?: string,
-    }
-}
+import {defaultInputUploadFileProps, InputUploadFileProps} from "../uiTypes/uiTypes";
 
-const defaultProps: Partial<Props> = {
-    options: {
-        id: '',
-        isLabel: true,
-        labelTitle: '',
-        labelClassName: '',
-        inputClassName: 'form-control',
-        inputGroupClassName: 'input-group',
-    }
-}
-
-const InputUploadFile: React.FC<Props> = ({onFileChange, options}) => {
-    options = {...defaultProps.options, ...options}
+const InputUploadFile: React.FC<InputUploadFileProps> = ({onFileChange, options}: InputUploadFileProps) => {
+    options = {...defaultInputUploadFileProps.options, ...options}
     const {id, isLabel, inputGroupClassName, inputClassName, labelClassName, labelTitle} = options
     const label = isLabel ?
         <label className={labelClassName} htmlFor={id}>{labelTitle}</label> : ''
@@ -36,7 +15,5 @@ const InputUploadFile: React.FC<Props> = ({onFileChange, options}) => {
         </div>
     );
 };
-
-
 
 export default InputUploadFile;
