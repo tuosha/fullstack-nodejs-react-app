@@ -1,15 +1,16 @@
 import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 import TerserPlugin from "terser-webpack-plugin";
 import {isProd} from "./modes";
+import webpack from "webpack";
 
-const optimization = () => {
-    const config = {
+const optimization= () => {
+    const config: webpack.Configuration['optimization'] = {
         runtimeChunk: 'single',
         splitChunks: {
             chunks: "all"
         },
-        minimize: <boolean> false,
-        minimizer: <Array<object>>[]
+        minimize: false,
+        minimizer: []
     }
     if (isProd) {
         config.minimize = true

@@ -37,7 +37,7 @@ const ItemList = ({data, loaded, error}: GetDataPropsTypes) => {
         <>
             {list}
             {!loaded && <p>...loading</p>}
-            {error && <p>Can't get data from server, error is: {error}</p>}
+            {error && <p>Can`&apos`t get data from server, error is: {error}</p>}
         </>
     )
 }

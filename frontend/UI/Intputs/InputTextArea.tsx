@@ -1,33 +1,7 @@
-interface Props {
-    options: {
-        id?: string,
-        isLabel: boolean,
-        labelTitle?: string,
-        labelClassName?: string,
-        inputGroupClassName?: string,
-        textAreaClassName?: string,
-        placeHolder?: string,
-        ariaLabel?: string,
-        rows?: number
-    }
-}
+import {defaultInputTextAreaProps, InputTextAreaProps} from "../uiTypes/uiTypes";
 
-const defaultProps: Partial<Props> = {
-    options: {
-        id: '',
-        isLabel: true,
-        labelTitle: '',
-        labelClassName: '',
-        inputGroupClassName: 'input-group',
-        textAreaClassName: '',
-        placeHolder: '',
-        ariaLabel: 'With textarea',
-        rows: 2,
-    }
-}
-
-const InputTextArea: React.FC<Props> = ({options}, Options) => {
-    options = {...defaultProps.options, ...options}
+const InputTextArea: React.FC<InputTextAreaProps> = ({options}: InputTextAreaProps) => {
+    options = {...defaultInputTextAreaProps.options, ...options}
     const {id, isLabel, labelTitle, labelClassName, inputGroupClassName, textAreaClassName, placeHolder, ariaLabel, rows} = options
     const label = isLabel ?
         <label className={labelClassName}

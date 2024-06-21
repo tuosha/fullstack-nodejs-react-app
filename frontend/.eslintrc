@@ -1,6 +1,7 @@
 {
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
+    "ecmaVersion": 2020,
     "requireConfigFile": false
   },
   "env": {

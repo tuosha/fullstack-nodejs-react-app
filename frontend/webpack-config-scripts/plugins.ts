@@ -9,7 +9,7 @@ import Dotenv from "dotenv-webpack";
 import {fileName, isDev, __dirname, isProd, isBundleAnalyzer, isEslintErrors} from "./modes";
 
 const plugins = () => {
-    const basePlugins = [
+    const basePlugins: webpack.WebpackPluginInstance[] = [
         new webpack.ProgressPlugin(),
         new HtmlWebpackPlugin(
             Object.assign({
@@ -45,7 +45,7 @@ const plugins = () => {
     }
     if (isEslintErrors) {
         const eslintPlugin = new ESLintPlugin({
-                extensions: ['js','jsx','ts','tsx']
+                extensions: ['js', 'jsx', 'ts', 'tsx']
             }
         )
         basePlugins.push(eslintPlugin)
