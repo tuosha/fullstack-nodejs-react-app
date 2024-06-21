@@ -2,6 +2,7 @@ import path from 'path'
 import webpack from "webpack";
 import rulesLoaders from './webpack-config-scripts/loaders/rulesLoaders'
 import plugins from "./webpack-config-scripts/plugins";
+import optimization from "./webpack-config-scripts/optimization";
 import devServer from "./webpack-config-scripts/devServer";
 import {fileName, isDev, __dirname} from "./webpack-config-scripts/modes";
 
@@ -27,7 +28,7 @@ const config: webpack.Configuration = {
 		},
 	},
 	devServer: devServer,
-	// optimization: optimization(),
+	optimization: optimization(),
     plugins: plugins(),
 	module: {
 		rules: rulesLoaders()

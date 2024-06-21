@@ -1,8 +1,9 @@
 import cssLoaders from "./cssLoaders";
 import babelLoaders from "./babelLoaders";
+import webpack from "webpack";
 
 const rulesLoaders = () => {
-    const rulesSet = [
+    const rulesSet: webpack.RuleSetRule[]  = [
         {
             test: /\.tsx?$/,
             exclude: /node_modules/,
