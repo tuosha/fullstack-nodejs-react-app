@@ -45,14 +45,18 @@ const plugins = () => {
     }
     if (isEslintErrors) {
         const eslintPlugin = new ESLintPlugin({
-                extensions: ['js', 'jsx', 'ts', 'tsx']
+            context: '../',
+            extensions: ["js", "jsx", "ts", "tsx"],
             }
         )
         basePlugins.push(eslintPlugin)
+        console.log('here')
+        console.log(path.resolve(__dirname, 'src/'))
     }
     if (isDev || isEslintErrors) {
         basePlugins.push(new Dotenv())
     }
+
     return basePlugins
 }
 

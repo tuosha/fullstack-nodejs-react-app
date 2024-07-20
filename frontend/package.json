@@ -6,8 +6,8 @@
   "scripts": {
     "build": "cross-env NODE_OPTIONS=\"--loader ts-node/esm\" NODE_ENV=production webpack --mode production",
     "start": "cross-env NODE_OPTIONS=\"--loader ts-node/esm\" NODE_ENV=development webpack serve --mode development --open",
-    "eslint": "cross-env NODE_OPTIONS=\"--loader ts-node/esm\" NODE_ENV=eslint_errors webpack serve  --mode development  --open",
-    "lint": "cross-env NODE_OPTIONS=\"--loader ts-node/esm\" NODE_ENV=eslint_errors eslint . --ext=ts,tsx",
+    "lint": "cross-env NODE_OPTIONS=\"--loader ts-node/esm --max-old-space-size=8192\" NODE_ENV=eslint_errors webpack serve --mode development  --open",
+    "lint-cli": "eslint . --ext=ts,tsx",
     "start-babel": "cross-env NODE_OPTIONS=\"--loader ts-node/esm\" NODE_ENV=with_babel webpack serve --mode development --open",
     "stats": "cross-env NODE_OPTIONS=\"--loader ts-node/esm\" NODE_ENV=bundle_analyzer webpack --mode production --json > stats.json && webpack-bundle-analyzer stats.json",
     "clean": "rd /s /q dist"
