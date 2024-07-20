@@ -1,5 +1,5 @@
-import {deletePost} from '../api/api'
-import {_basePostsUrl} from '../api/urls'
+import {deletePost} from '../../api/api'
+import {_basePostsUrl} from '../../api/urls'
 import {useEffect, useState} from 'react'
 import Item from './Item'
 
@@ -18,13 +18,10 @@ const ItemList = ({data, loaded, error}: GetDataPropsTypes) => {
             then(res => {
                 setData(currentData.filter(el => el._id !== id))
                 setDeleted(res)
-                onDeleteMsg(res)
             }).
             catch(er => er)
     }
-    const onDeleteMsg = (deleted: object) => {
-        setDeleted(deleted)
-    }
+
     const list = loaded && !error && (currentData.length ?
         <ul>{currentData.map(el =>
             <Item key={el._id}

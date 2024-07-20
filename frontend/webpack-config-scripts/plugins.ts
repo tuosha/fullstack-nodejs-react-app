@@ -50,8 +50,6 @@ const plugins = () => {
             }
         )
         basePlugins.push(eslintPlugin)
-        console.log('here')
-        console.log(path.resolve(__dirname, 'src/'))
     }
     if (isDev || isEslintErrors) {
         basePlugins.push(new Dotenv())
