@@ -1,4 +1,5 @@
-import {InputTextProps, defaultInputTextProps} from "../uiTypes/uiTypes";
+import {InputTextProps} from "../../types/InputsTypes";
+import {defaultInputTextProps} from "./defaultValues/defaultValues";
 
 const InputText: React.FC<InputTextProps> = ({options}: InputTextProps) => {
     options = {...defaultInputTextProps.options, ...options}
