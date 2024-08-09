@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 const useDeleteRequest = (data, url, fn) => {
 	const [deleted, setDeleted] = useState('')

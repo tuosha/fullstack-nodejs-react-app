@@ -1,5 +1,5 @@
-import {deletePost} from '../api/api'
-import {_basePostsUrl} from '../api/urls'
+import {deletePost} from '../../api/api'
+import {_basePostsUrl} from '../../api/urls'
 import {useEffect, useState} from 'react'
 import Item from './Item'
 

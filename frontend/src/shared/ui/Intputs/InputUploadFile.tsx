@@ -1,4 +1,5 @@
-import {defaultInputUploadFileProps, InputUploadFileProps} from "../uiTypes/uiTypes";
+import {InputUploadFileProps} from "../../types/InputsTypes";
+import {defaultInputUploadFileProps} from "./defaultValues/defaultValues";
 
 const InputUploadFile: React.FC<InputUploadFileProps> = ({onFileChange, options}: InputUploadFileProps) => {
     options = {...defaultInputUploadFileProps.options, ...options}
