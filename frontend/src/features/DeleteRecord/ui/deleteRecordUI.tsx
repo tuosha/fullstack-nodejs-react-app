@@ -5,10 +5,7 @@ import {deleteRecord} from "../api/deleteRecordApi";
 
 const DeleteRecord = (data) => {
     const {onHandleDelete, currentData, deleted, onDeleteError} = useDeleteRequest(data, _basePostsUrl, deleteRecord)
-    return <DeleteButton
-        onHandleDelete={onHandleDelete}
-        text='Delete BTN'
-    />
+    return <button onClick={onHandleDelete}>delete</button>
 }
 
 export default DeleteRecord

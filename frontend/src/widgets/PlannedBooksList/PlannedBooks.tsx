@@ -1,11 +1,10 @@
-import React from 'react'
 import ItemList from '../../entites/ItemsList'
 import useGetRequest from '../../shared/hooks/useGetRequest'
 import {_basePostsUrl} from '../../../api/urls'
 import {getAllPosts} from '../../../api/api'
-import {DeleteRecord} from "../../features/DeleteRecord";
+import UpdateRecordsList from "../UpdateRecordsList/UpdateRecordsList";
 
-const PlannedBooks = () => {
+const PlannedBooksList = () => {
     const {data, loaded, error} = useGetRequest(_basePostsUrl, getAllPosts)
     return (
         <>
@@ -14,12 +13,12 @@ const PlannedBooks = () => {
                 loaded={loaded}
                 error={error}
             />
-            {/*<DeleteRecord*/}
-
-            {/*/>*/}
+            <UpdateRecordsList
+                data={data}
+            />
         </>
     )
 
 }
 
-export default PlannedBooks
+export default PlannedBooksList
