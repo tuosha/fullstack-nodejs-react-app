@@ -6,6 +6,7 @@ import UpdateRecordsList from "../UpdateRecordsList/UpdateRecordsList";
 
 const PlannedBooksList = () => {
     const {data, loaded, error} = useGetRequest(_basePostsUrl, getAllPosts)
+    const i =1
     return (
         <>
             <ItemList
