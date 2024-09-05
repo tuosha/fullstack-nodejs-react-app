@@ -1,9 +1,5 @@
 const MainNavbar = () => {
-    return (
-        <div>
+    return <div></div>
+}
 
-        </div>
-    );
-};
-
-export default MainNavbar;
+export default MainNavbar

@@ -1,4 +1,4 @@
-import {InputTextAreaProps, InputTextProps, InputUploadFileProps} from "../../../types/InputsTypes";
+import { InputTextAreaProps, InputTextProps, InputUploadFileProps } from '../../../types/InputsTypes'
 
 const defaultInputTextProps: Partial<InputTextProps> = {
     options: {
@@ -9,7 +9,7 @@ const defaultInputTextProps: Partial<InputTextProps> = {
         inputClassName: 'form-control mb-2 mr-sm-2',
         inputGroupClassName: 'input-group',
         placeHolder: '',
-    }
+    },
 }
 
 const defaultInputTextAreaProps: Partial<InputTextAreaProps> = {
@@ -23,7 +23,7 @@ const defaultInputTextAreaProps: Partial<InputTextAreaProps> = {
         placeHolder: '',
         ariaLabel: 'With textarea',
         rows: 2,
-    }
+    },
 }
 
 const defaultInputUploadFileProps: Partial<InputUploadFileProps> = {
@@ -34,11 +34,7 @@ const defaultInputUploadFileProps: Partial<InputUploadFileProps> = {
         labelClassName: '',
         inputClassName: 'form-control',
         inputGroupClassName: 'input-group',
-    }
+    },
 }
 
-export {
-    defaultInputTextProps,
-    defaultInputTextAreaProps,
-    defaultInputUploadFileProps
-}
+export { defaultInputTextProps, defaultInputTextAreaProps, defaultInputUploadFileProps }

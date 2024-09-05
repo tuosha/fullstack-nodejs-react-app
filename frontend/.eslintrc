@@ -1,35 +1,44 @@
 {
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": "latest",
-    "sourceType": "module"
+	"ecmaVersion": "latest",
+	"sourceType": "module",
+	"ecmaFeatures": {
+	  "jsx": true
+	}
   },
   "settings": {
-    "react": {
-      "version": "detect"
-    }
+	"react": {
+	  "version": "detect"
+	}
   },
   "env": {
-    "es6": true,
-    "browser": true,
-    "node": true
+	"es6": true,
+	"browser": true,
+	"node": true
   },
   "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended"
+	"eslint:recommended",
+	"plugin:react/recommended",
+	"plugin:@typescript-eslint/recommended",
+	"plugin:prettier/recommended"
+  ],
+  "plugins": [
+	"react",
+	"prettier"
   ],
   "rules": {
-    "react/display-name": 1,
-    "react/prop-types": 1,
-    "react/react-in-jsx-scope": 0,
-    "react/jsx-uses-react": 0,
-    "no-unused-vars": 0,
-    "no-mixed-spaces-and-tabs": 1,
-    "@typescript-eslint/no-var-requires": 0,
-    "@typescript-eslint/no-unused-vars": 1
+	"prettier/prettier": "error",
+	"react/display-name": "warn",
+	"react/prop-types": "warn",
+	"react/react-in-jsx-scope": "off",
+	"react/jsx-uses-react": "off",
+	"no-unused-vars": "off",
+	"no-mixed-spaces-and-tabs": "warn",
+	"@typescript-eslint/no-var-requires": "off",
+	"@typescript-eslint/no-unused-vars": "warn"
   }
 }
+
+
+

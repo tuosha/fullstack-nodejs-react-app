@@ -1,35 +1,39 @@
-import {deletePost} from '../../api/api'
-import {_basePostsUrl} from '../../api/urls'
-import {useEffect, useState} from 'react'
+import { deletePost } from '../../api/api'
+import { _basePostsUrl } from '../../api/urls'
+import { useEffect, useState } from 'react'
 import Item from './Item'
 
-interface GetDataPropsTypes {
-    data: object[],
-    loaded: boolean,
-    error: string,
+interface IDataPropsTypes {
+    data: object[]
+    loaded: boolean
+    error: string
 }
 
-const ItemList = ({data, loaded, error}: GetDataPropsTypes) => {
+const ItemList = ({ data, loaded, error }: IDataPropsTypes) => {
     const [currentData, setData] = useState([])
     const [deleted, setDeleted] = useState<object>({})
     useEffect(() => setData(data), [data])
     const onHandleDelete = (id: string) => {
-        deletePost(_basePostsUrl, id).
-            then(res => {
-                setData(currentData.filter(el => el._id !== id))
+        deletePost(_basePostsUrl, id)
+            .then((res) => {
+                setData(currentData.filter((el) => el._id !== id))
                 setDeleted(res)
-            }).
-            catch(er => er)
+            })
+            .catch((er) => er)
     }
 
-    const list = loaded && !error && (currentData.length ?
-        <ul>{currentData.map(el =>
-            <Item key={el._id}
-                  item={el}
-                  onHandleDelete={onHandleDelete}
-            />)}
-        </ul> :
-        <p>No posts!</p>)
+    const list =
+        loaded &&
+        !error &&
+        (currentData.length ? (
+            <ul>
+                {currentData.map((el) => (
+                    <Item key={el._id} item={el} onHandleDelete={onHandleDelete} />
+                ))}
+            </ul>
+        ) : (
+            <p>No posts!</p>
+        ))
     return (
         <>
             {list}

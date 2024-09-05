@@ -1,10 +1,5 @@
-
 const SubmitButton = () => {
-    return (
-        <div>
+    return <div></div>
+}
 
-        </div>
-    );
-};
-
-export default SubmitButton;
+export default SubmitButton

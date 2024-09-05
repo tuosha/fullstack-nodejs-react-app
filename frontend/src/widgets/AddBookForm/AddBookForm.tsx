@@ -1,9 +1,9 @@
 import InputText from '../../shared/ui/Intputs/InputText'
 import InputTextArea from '../../shared/ui/Intputs/InputTextArea'
 import InputUploadFile from '../../shared/ui/Intputs/InputUploadFile'
-import {_basePostsUrl} from '../../../api/urls'
-import {useState, useRef} from 'react'
-import {sendPostRequest} from "./api/addBookApi";
+import { _basePostsUrl } from '../../../api/urls'
+import React, { useState, useRef } from 'react'
+import { sendPostRequest } from './api/addBookApi'
 
 const AddBookForm = () => {
     const [file, setFile] = useState<File | null>(null)
@@ -23,19 +23,19 @@ const AddBookForm = () => {
     }
 
     return (
-        <form className="form-inline" id="base-form" ref={form}>
+        <form className='form-inline' id='base-form' ref={form}>
             <InputText
                 options={{
                     id: 'title',
                     labelTitle: 'Title',
-                    placeHolder: 'Title'
+                    placeHolder: 'Title',
                 }}
             />
             <InputText
                 options={{
                     id: 'author',
                     labelTitle: 'Author',
-                    placeHolder: 'Author'
+                    placeHolder: 'Author',
                 }}
             />
             <InputTextArea
@@ -59,14 +59,11 @@ const AddBookForm = () => {
                 }}
             />
 
-            <button
-                type="submit"
-                className="btn btn-primary mb-2"
-                onClick={onHandleSubmit}>Submit
+            <button type='submit' className='btn btn-primary mb-2' onClick={onHandleSubmit}>
+                Submit
             </button>
         </form>
     )
 }
 
 export default AddBookForm
-
