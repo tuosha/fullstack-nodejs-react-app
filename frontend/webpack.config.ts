@@ -1,41 +1,30 @@
 import path from 'path'
-import webpack from "webpack";
-import rulesLoaders from './webpack-config-scripts/rulesLoaders'
-import plugins from "./webpack-config-scripts/plugins";
-import optimization from "./webpack-config-scripts/optimization";
-import devServer from "./webpack-config-scripts/devServer";
-import {fileName, isDev, __dirname} from "./webpack-config-scripts/modes";
+import { buildWebpackConfig } from './config/webpackConfig/buildWebpackConfig'
 
-const config: webpack.Configuration = {
-	mode: 'development',
-	context: path.resolve(__dirname, '../src'),
-	devtool: isDev ? 'source-map' : false,
-	target: isDev ? "web" : "browserslist",
-	entry: {
-		bundle: './index.tsx',
-	},
-	output: {
-		filename: `static/js/${fileName('js')}`,
-		path: path.resolve(__dirname, '../dist/'),
-		assetModuleFilename: 'static/media/[name].[hash][ext]',
-		clean: true,
-	},
-	resolve: {
-		extensions: ['.tsx', '.ts', '.js', '.jsx'],
-		alias: {
-			'@images': path.resolve(__dirname, 'src/assets/images'),
-			'@': path.resolve(__dirname, 'src')
-		},
-	},
-	devServer: devServer,
-	optimization: optimization(),
-    plugins: plugins(),
-	module: {
-		rules: rulesLoaders()
-	},
-    stats: {
-        children: true
-    }
+const isDev: boolean = process.env.NODE_ENV === 'development'
+const isProd: boolean = !isDev
+const isEslint: boolean = process.env.NODE_ENV === 'eslint_mode'
+const isBundleAnalyzer: boolean = process.env.NODE_ENV === 'bundle_analyzer'
+const fileName = (ext: string): string => (isDev ? `[name].${ext}` : `[name][contenthash].${ext}`)
+const PORT: number = 3001
+const paths = {
+    entry: path.resolve(__dirname, 'src', 'index.tsx'),
+    src: path.resolve(__dirname, 'src'),
+    build: path.resolve(__dirname, 'dist'),
+    public: path.resolve(__dirname, 'public'),
+    html: path.resolve(__dirname, 'public', 'index.html'),
+    assets: path.resolve(__dirname, 'src/assets'),
 }
 
-export default config;
+const config = () =>
+    buildWebpackConfig({
+        paths,
+        isDev,
+        isProd,
+        isEslint,
+        isBundleAnalyzer,
+        fileName,
+        PORT,
+    })
+
+export default config

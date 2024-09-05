@@ -1,6 +1,6 @@
-import {BookCardTypes} from "../types/BookCardTypes";
+import { BookCardTypes } from '../types/BookCardTypes'
 
-const BookCard = ({item, onHandleDelete}: BookCardTypes) => {
+const BookCard = ({ item, onHandleDelete }: BookCardTypes) => {
     return (
         <li key={item._id}>
             <span>Title: {item.title} </span>

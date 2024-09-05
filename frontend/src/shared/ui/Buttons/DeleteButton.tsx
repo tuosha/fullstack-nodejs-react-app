@@ -1,14 +1,9 @@
-
-const DeleteButton = (onHandleDelete, text) => {
-    return (
-        <button
-            onClick={onHandleDelete}
-            type={}
-            className={}
-        >
+const DeleteButton = (fn: () => void, text: string, className: string) => (
+    <>
+        <button onClick={fn} className={className}>
             {text}
         </button>
-    );
-};
+    </>
+)
 
-export default DeleteButton;
+export default DeleteButton

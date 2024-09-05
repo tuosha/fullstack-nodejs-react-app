@@ -1,5 +1,3 @@
-import DeleteRecord from "./ui/deleteRecordUI";
+import DeleteRecord from './ui/deleteRecordUI'
 
-export {
-    DeleteRecord
-}
+export { DeleteRecord }

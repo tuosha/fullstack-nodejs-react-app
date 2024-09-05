@@ -1,9 +1,5 @@
 const DoneBooksList = () => {
-    return (
-        <div>
+    return <div></div>
+}
 
-        </div>
-    );
-};
-
-export default DoneBooksList;
+export default DoneBooksList
