@@ -13,7 +13,7 @@ const paths = {
     build: path.resolve(__dirname, 'dist'),
     public: path.resolve(__dirname, 'public'),
     html: path.resolve(__dirname, 'public', 'index.html'),
-    assets: path.resolve(__dirname, 'src/assets'),
+    assets: path.resolve(__dirname, 'src/shared/assets'),
 }
 
 const config = () =>
