@@ -1,7 +1,4 @@
-import { deletePost } from '../../api/api'
-import { _basePostsUrl } from '../../api/urls'
-import { useEffect, useState } from 'react'
-import Item from './Item'
+import React, { FC, useEffect, useState } from 'react'
 
 interface IDataPropsTypes {
     data: object[]
@@ -9,26 +6,22 @@ interface IDataPropsTypes {
     error: string
 }
 
-const ItemList = ({ data, loaded, error }: IDataPropsTypes) => {
-    const [currentData, setData] = useState([])
-    const [deleted, setDeleted] = useState<object>({})
-    useEffect(() => setData(data), [data])
-    const onHandleDelete = (id: string) => {
-        deletePost(_basePostsUrl, id)
-            .then((res) => {
-                setData(currentData.filter((el) => el._id !== id))
-                setDeleted(res)
-            })
-            .catch((er) => er)
-    }
+interface IConfigItem {
+    Item: React.FC<{ item: object }>
+}
 
+type TItemList = IDataPropsTypes & IConfigItem
+
+const ItemList: FC<TItemList> = ({ data, loaded, error, Item }) => {
+    const [currentData, setData] = useState([])
+    useEffect(() => setData(data), [data])
     const list =
         loaded &&
         !error &&
         (currentData.length ? (
             <ul>
                 {currentData.map((el) => (
-                    <Item key={el._id} item={el} onHandleDelete={onHandleDelete} />
+                    <Item key={el._id} item={el} />
                 ))}
             </ul>
         ) : (

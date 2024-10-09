@@ -1,11 +1,9 @@
-import AddBookForm from '../widgets/AddBookForm/AddBookForm'
-import PlannedBooks from '../widgets/PlannedBooksList/PlannedBooks'
+import AppRouterProvider from './providers/RouterProvider'
 
 const App = () => {
     return (
         <>
-            <PlannedBooks />
-            <AddBookForm />
+            <AppRouterProvider />
         </>
     )
 }

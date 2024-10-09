@@ -1,14 +1,15 @@
 import React from 'react'
 import ItemList from '../../entites/ItemsList'
 import useGetRequest from '../../shared/hooks/useGetRequest'
-import { _basePostsUrl } from '../../../api/urls'
+import { _baseGetPostsUrl } from '../../../api/urls'
 import { getAllPosts } from '../../../api/api'
+import BookCard from '../../entites/BookCard/ui/BookCard'
 
 const PlannedBooks = () => {
-    const { data, loaded, error } = useGetRequest(_basePostsUrl, getAllPosts)
+    const { data, loaded, error } = useGetRequest(_baseGetPostsUrl, getAllPosts)
     return (
         <>
-            <ItemList data={data} loaded={loaded} error={error} />
+            <ItemList data={data} loaded={loaded} error={error} Item={BookCard} />
         </>
     )
 }
