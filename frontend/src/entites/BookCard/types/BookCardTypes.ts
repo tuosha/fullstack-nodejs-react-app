@@ -4,7 +4,6 @@ interface BookCardTypes {
         title: string
         author: string
     }
-    onHandleDelete: (id: string) => void
 }
 
 export { BookCardTypes }

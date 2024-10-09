@@ -1,7 +1,7 @@
 import InputText from '../../shared/ui/Intputs/InputText'
 import InputTextArea from '../../shared/ui/Intputs/InputTextArea'
 import InputUploadFile from '../../shared/ui/Intputs/InputUploadFile'
-import { _basePostsUrl } from '../../../api/urls'
+import { _baseGetPostsUrl } from '../../../api/urls'
 import React, { useState, useRef } from 'react'
 import { sendPostRequest } from './api/addBookApi'
 
@@ -19,7 +19,7 @@ const AddBookForm = () => {
         e.preventDefault()
         const formData = new FormData(form.current)
         formData.append('picture', file)
-        await sendPostRequest(_basePostsUrl, formData)
+        await sendPostRequest(_baseGetPostsUrl, formData)
     }
 
     return (
