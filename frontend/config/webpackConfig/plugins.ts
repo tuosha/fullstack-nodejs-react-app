@@ -24,6 +24,7 @@ const plugins = ({ paths, isDev, isProd, isEslint, isBundleAnalyzer, fileName }:
         ),
         new MiniCssExtractPlugin({
             filename: `static/css/${fileName('css')}`,
+            chunkFilename: `static/css/${fileName('css')}`,
         }),
     ]
     if (isEslint) {
