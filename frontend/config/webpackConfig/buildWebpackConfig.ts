@@ -22,7 +22,7 @@ export const buildWebpackConfig = (options: IBuildOptions): webpack.Configuratio
         optimization: optimization(options),
         devServer: isDev || isEslint ? devServer(options) : {},
         module: {
-            rules: rules(),
+            rules: rules(isDev || isEslint),
         },
         resolve: resolvers(options),
     }
