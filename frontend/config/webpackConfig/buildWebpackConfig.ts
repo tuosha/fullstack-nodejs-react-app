@@ -15,7 +15,7 @@ export const buildWebpackConfig = (options: IBuildOptions): webpack.Configuratio
         output: {
             path: paths.build,
             filename: `static/js/${fileName('js')}`,
-            assetModuleFilename: 'static/assets/[hash][ext]',
+            assetModuleFilename: 'static/assets/[hash:5][ext]',
             clean: true,
         },
         plugins: plugins(options),

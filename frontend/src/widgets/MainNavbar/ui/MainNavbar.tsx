@@ -1,12 +1,17 @@
-import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
-import './styles/MainNavbar.css'
+import { Outlet } from 'react-router-dom'
+import classes from './styles/MainNavbar.module.scss'
+import useTheme from '../../../app/providers/MainThemeProvider/lib/useTheme'
+import { classNames } from '../../../shared/helpers/classNames'
+import ThemeSwitcher from '../../../shared/ui/ThemeSwitcher/ThemeSwitcher'
+import AppLink from '../../../shared/ui/AppLink/AppLink'
 
 const MainNavbar = () => {
+    const { theme } = useTheme()
     return (
-        <div className='main-navbar--router__link '>
-            <Link to={'/planned-books'}>Planned Books</Link>
-            <Link to={'/add-book-form'}>Add book</Link>
+        <div className={classNames(classes.mainNavbar, {}, [theme])}>
+            <AppLink to={'/planned-books'}>Planned Books</AppLink>
+            <AppLink to={'/add-book-form'}>Add book</AppLink>
+            <ThemeSwitcher className={'switcher'} />
             <Outlet />
         </div>
     )

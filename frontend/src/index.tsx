@@ -1,11 +1,11 @@
 import React, { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './app/App'
+import AppRouterProvider from './app/providers/RouterProvider'
 
 const root = ReactDOM.createRoot(document.getElementById('app'))
 
 root.render(
     <StrictMode>
-        <App />
+        <AppRouterProvider />
     </StrictMode>,
 )
