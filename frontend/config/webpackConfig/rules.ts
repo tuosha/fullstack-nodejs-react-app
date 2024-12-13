@@ -9,11 +9,6 @@ const rules = (isDev: boolean) => {
             exclude: /node_modules/,
         },
         {
-            test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-            type: 'asset/resource',
-            exclude: /node_modules/,
-        },
-        {
             test: /\.css$/i,
             use: cssLoader('', isDev),
         },
@@ -26,7 +21,11 @@ const rules = (isDev: boolean) => {
             use: cssLoader('less-loader', isDev),
         },
         {
-            test: /\.(png|jpe?g|gif|svg|webp|ico)$/,
+            test: /\.svg$/,
+            use: ['@svgr/webpack'],
+        },
+        {
+            test: /\.(png|jpe?g|gif|webp|ico)$/,
             type: 'asset/resource',
         },
         {

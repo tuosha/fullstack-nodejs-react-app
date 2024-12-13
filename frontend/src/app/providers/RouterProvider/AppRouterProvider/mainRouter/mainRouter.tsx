@@ -1,15 +1,15 @@
 import { createBrowserRouter } from 'react-router-dom'
-import MainNavbar from '../../../../widgets/MainNavbar/ui/MainNavbar'
+import App from '../../../../App'
 
 const mainRouter = createBrowserRouter([
     {
         path: '/',
-        element: <MainNavbar />,
+        element: <App />,
         children: [
             {
                 path: '/planned-books',
                 lazy: async () => {
-                    const PlannedBooks = (await import('../../../../widgets/PlannedBooksList/PlannedBooks')).default
+                    const PlannedBooks = (await import('../../../../../widgets/PlannedBooksList/PlannedBooks')).default
                     return {
                         element: <PlannedBooks />,
                     }
@@ -18,7 +18,7 @@ const mainRouter = createBrowserRouter([
             {
                 path: '/add-book-form',
                 lazy: async () => {
-                    const AddBookForm = (await import('../../../../widgets/AddBookForm/AddBookForm')).default
+                    const AddBookForm = (await import('../../../../../widgets/AddBookForm/AddBookForm')).default
                     return {
                         element: <AddBookForm />,
                     }

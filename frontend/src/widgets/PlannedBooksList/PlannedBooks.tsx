@@ -1,6 +1,6 @@
 import React from 'react'
 import ItemList from '../../entites/ItemsList'
-import useGetRequest from '../../shared/hooks/useGetRequest'
+import useGetRequest from '../../shared/hooks/useGetRequest/useGetRequest'
 import { _baseGetPostsUrl } from '../../../api/urls'
 import { getAllPosts } from '../../../api/api'
 import BookCard from '../../entites/BookCard/ui/BookCard'

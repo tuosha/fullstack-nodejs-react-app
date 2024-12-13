@@ -1,10 +1,13 @@
-import AppRouterProvider from './providers/RouterProvider'
 import classes from './App.module.css'
+import MainThemeProvider from './providers/MainThemeProvider/ui/MainThemeProvider'
+import MainNavbar from '../widgets/MainNavbar'
 
 const App = () => {
     return (
         <div className={classes.app}>
-            <AppRouterProvider />
+            <MainThemeProvider>
+                <MainNavbar />
+            </MainThemeProvider>
         </div>
     )
 }
