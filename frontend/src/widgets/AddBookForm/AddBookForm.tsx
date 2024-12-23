@@ -2,20 +2,20 @@ import InputText from '../../shared/ui/Intputs/InputText'
 import InputTextArea from '../../shared/ui/Intputs/InputTextArea'
 import InputUploadFile from '../../shared/ui/Intputs/InputUploadFile'
 import { _baseGetPostsUrl } from '../../../api/urls'
-import React, { useState, useRef } from 'react'
+import { useState, useRef, MouseEventHandler, ChangeEventHandler } from 'react'
 import { sendPostRequest } from './api/addBookApi'
 
 const AddBookForm = () => {
     const [file, setFile] = useState<File | null>(null)
     const form = useRef(null)
 
-    const onFileChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+    const onFileChange: ChangeEventHandler<HTMLInputElement> = (e) => {
         if (e.target.files) {
             setFile(e.target.files[0])
         }
     }
 
-    const onHandleSubmit: React.MouseEventHandler<HTMLButtonElement> = async (e) => {
+    const onHandleSubmit: MouseEventHandler<HTMLButtonElement> = async (e) => {
         e.preventDefault()
         const formData = new FormData(form.current)
         formData.append('picture', file)
