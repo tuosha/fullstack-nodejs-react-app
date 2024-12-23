@@ -26,6 +26,9 @@ const plugins = ({ paths, isDev, isProd, isEslint, isBundleAnalyzer, fileName }:
             filename: `static/css/${fileName('css')}`,
             chunkFilename: `static/css/${fileName('css')}`,
         }),
+        new webpack.DefinePlugin({
+            __IS_DEV: JSON.stringify(isDev || isEslint),
+        }),
     ]
     if (isEslint) {
         basePlugins.push(
