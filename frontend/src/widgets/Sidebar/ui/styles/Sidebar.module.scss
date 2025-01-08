@@ -2,7 +2,6 @@
   width: var(--sidebar-width);
   background-color: aliceblue;
   height: calc(100vh - var(--main-navbar-height));
-
   transition: width 0.5s ease-in-out;
 }
 
