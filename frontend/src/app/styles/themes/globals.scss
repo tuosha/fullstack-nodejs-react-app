@@ -1,23 +1,17 @@
 @import "../fonts/proximaNova";
 
 :root {
-  --font-family-main: ProximaNova, "Arial", sans-serif;
-
+  --font-family-main: proximanova, "Arial", sans-serif;
   --font-size-s: 12px;
   --font-line-s: 20px;
-
   --font-size-m: 14px;
   --font-line-m: 22px;
-
   --font-size-l: 20px;
   --font-line-l: 28px;
-
   --font-s: var(--font-line-s) / var(--font-line-s) var(--font-family-main);
   --font-m: var(--font-line-m) / var(--font-line-m) var(--font-family-main);
   --font-l: var(--font-line-l) / var(--font-line-l) var(--font-family-main);
-
   --main-navbar-height: 50px;
-
   --sidebar-width: 300px;
   --sidebar-width-collapsed: 80px;
 }

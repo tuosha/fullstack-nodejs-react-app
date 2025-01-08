@@ -4,6 +4,13 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 const rules = (isDev: boolean) => {
     const baseRulesSet: webpack.RuleSetRule[] = [
         {
+            test: /\.(js,jsx,tsx)$/,
+            use: {
+                loader: 'babel-loader',
+            },
+            exclude: /node_modules/,
+        },
+        {
             test: /\.tsx?$/,
             use: 'ts-loader',
             exclude: /node_modules/,

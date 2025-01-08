@@ -1,20 +1,19 @@
-@import "themes/globals.scss";
+@import "themes/globals";
 
 .app {
   font: var(--font-s);
 }
 
 .app.light {
-
 }
 
 .app.dark {
-
 }
 
 .app-component-wrapper {
-	display: flex;
+  display: flex;
 }
+
 .app-content-page {
-	flex-grow: 1;
+  flex-grow: 1;
 }
