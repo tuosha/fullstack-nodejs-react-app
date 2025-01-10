@@ -1,12 +1,17 @@
 import { createBrowserRouter } from 'react-router-dom'
-import App from '../../../../App'
 import RouterErrorPage from '../../../../../widgets/RouterErrorPage/RouterErrorPage'
+import AppContentLayout from '../../../../ui/AppContentLayout/AppContentLayout'
+import App from '../../../../App'
 
 const mainRouter = createBrowserRouter([
     {
         path: '/',
         element: <App />,
-        errorElement: <RouterErrorPage />,
+        errorElement: (
+            <AppContentLayout>
+                <RouterErrorPage />
+            </AppContentLayout>
+        ),
         children: [
             {
                 path: '/planned-books',
