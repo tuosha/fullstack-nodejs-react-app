@@ -6,7 +6,7 @@ import App from '../../../../App'
 const mainRouter = createBrowserRouter([
     {
         path: '/',
-        element: <App />,
+        element: <AppContentLayout />,
         errorElement: (
             <AppContentLayout>
                 <RouterErrorPage />

@@ -6,6 +6,8 @@ import { classNames } from '../../../shared/helpers/classNames'
 import { useTheme } from '../../providers/MainThemeProvider'
 import MainThemeProvider from '../../providers/MainThemeProvider/ui/MainThemeProvider'
 import { ReactNode, Suspense } from 'react'
+import ErrorBoundary from '../../providers/ErrorBoundary'
+import AppRouterProvider from '../../providers/RouterProvider'
 
 interface IAppContentLayout {
     children?: ReactNode
@@ -13,6 +15,7 @@ interface IAppContentLayout {
 
 const AppContentLayout = ({ children }: IAppContentLayout) => {
     const { theme } = useTheme()
+
     return (
         <Suspense fallback='loading...'>
             <MainThemeProvider>
@@ -20,6 +23,7 @@ const AppContentLayout = ({ children }: IAppContentLayout) => {
                     <MainNavbar />
                     <div className={cls.appComponentWrapper}>
                         <Sidebar />
+                        <AppRouterProvider />
                         <div className={cls.appContentPage}>{children ?? <Outlet />}</div>
                     </div>
                 </div>
