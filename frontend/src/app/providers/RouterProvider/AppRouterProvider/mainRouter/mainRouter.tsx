@@ -1,6 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom'
 import RouterErrorPage from '../../../../../widgets/RouterErrorPage/RouterErrorPage'
-import AppContentLayout from '../../../../ui/AppContentLayout/AppContentLayout'
 import App from '../../../../App'
 
 const mainRouter = createBrowserRouter([
@@ -8,9 +7,9 @@ const mainRouter = createBrowserRouter([
         path: '/',
         element: <App />,
         errorElement: (
-            <AppContentLayout>
+            <App>
                 <RouterErrorPage />
-            </AppContentLayout>
+            </App>
         ),
         children: [
             {
