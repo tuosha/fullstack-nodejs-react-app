@@ -14,7 +14,11 @@ interface BaseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const BaseButton: FC<BaseButtonProps> = (props: BaseButtonProps) => {
     const { className, theme, children, ...otherProps } = props
     return (
-        <button className={classNames(cls.BaseButton, {}, [className, cls[theme]])} {...otherProps}>
+        <button
+            type='button'
+            className={classNames(cls.baseButton, { [cls[theme]]: true }, [className])}
+            {...otherProps}
+        >
             {children}
         </button>
     )
