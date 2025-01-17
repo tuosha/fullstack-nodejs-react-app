@@ -8,13 +8,20 @@
         "jsx": "react-jsx",
         "allowJs": true,
         "moduleResolution": "node",
-        "allowSyntheticDefaultImports": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true
     },
     "ts-node": {
         "compilerOptions": {
             "module": "CommonJS"
         }
     },
-    "exclude": ["node_modules"]
+    "exclude": ["node_modules"],
+    "include": [
+        "./src/**/*.ts",
+        "./src/**/*.tsx",
+        "./config/**/*.ts",
+        "./config/**/*.tsx",
+        "./config/jest/testsSetup.ts",
+    ],
 }

@@ -18,10 +18,9 @@ declare module '*.less' {
     const resource: { [key: string]: string }
     export = resource
 }
-declare module "*.svg" {
+declare module '*.svg' {
     import React from 'react'
-    const content: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
-    export default content;
+    const content: React.FunctionComponent<React.SVGAttributes<SVGElement>>
+    export default content
 }
-declare const __IS_DEV : boolean
-declare const __TWO : string
+declare const __IS_DEV: boolean
