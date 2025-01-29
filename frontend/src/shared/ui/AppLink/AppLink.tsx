@@ -10,7 +10,7 @@ interface AppLinkProps extends LinkProps {
 const AppLink: FC<AppLinkProps> = (props) => {
     const { to, className, children } = props
     return (
-        <Link to={to} className={classNames(cls.navbar, {}, [className])}>
+        <Link to={to} className={classNames(cls.appLink, {}, [className])}>
             {children}
         </Link>
     )
