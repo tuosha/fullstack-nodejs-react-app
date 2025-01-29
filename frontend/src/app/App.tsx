@@ -7,13 +7,14 @@ import Sidebar from '../widgets/Sidebar'
 import { Outlet } from 'react-router-dom'
 import { IAppContentLayout } from './types/AppTypes'
 import ErrorBoundary from './providers/ErrorBoundary'
+import './styles/index.scss'
 
 const App = ({ children }: IAppContentLayout) => {
     const { theme } = useTheme()
     return (
         <ErrorBoundary>
             <Suspense fallback='loading...'>
-                <div className={classNames(cls.app, {}, [theme])}>
+                <div className={classNames('app', {}, [theme])}>
                     <MainNavbar />
                     <div className={cls.appComponentWrapper}>
                         <Sidebar />

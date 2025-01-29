@@ -7,7 +7,7 @@ const MainNavbar = () => {
     const { t } = useTranslation('mainNavbarTrs')
     return (
         <div className={classNames(cls.mainNavbar, {}, [])}>
-            <AppLink to={'/planned-books'}>{t('Запланированые книги')}</AppLink>
+            <AppLink to={'/planned-books'}> {t('Запланированые книги')}</AppLink>
             <AppLink to={'/planned-books'}>{t('Запланированные фильмы')}</AppLink>
             <AppLink to={'/add-book-form'}>{t('Добавить книгу')}</AppLink>
             <AppLink to={'/planned-books'}>{t('Прочитанные книги')}</AppLink>

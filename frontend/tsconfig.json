@@ -23,5 +23,6 @@
         "./config/**/*.ts",
         "./config/**/*.tsx",
         "./config/jest/testsSetup.ts",
+        "./webpack.config.ts",
     ],
 }
