@@ -10,15 +10,15 @@
     "lint": "cross-env NODE_ENV=eslint_mode webpack serve --mode development --open",
     "lint:cli": "eslint --ignore-path .gitignore .",
     "lint:fix": "eslint --ignore-path .gitignore . --fix",
-    "lint:css:cli": "npx stylelint \"**/*.scss\"",
-    "lint:css:fix": "npx stylelint \"**/*.scss\" --fix",
+    "lint:scss:cli": "npx stylelint \"**/*.scss\"",
+    "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "format": "prettier --check --ignore-path .gitignore .",
     "format:fix": "prettier --write --ignore-path .gitignore .",
     "test:jest": "jest --config ./config/jest/jest.config.ts",
     "stats": "cross-env NODE_ENV=bundle_analyzer webpack --mode production --json > stats.json && webpack-bundle-analyzer stats.json",
     "clean": "rd /s /q dist",
     "storybook": "storybook dev -p 6006 -c ./config/storybook/",
-    "build-storybook": "storybook build -c ./config/storybook/"
+    "storybook:build": "storybook build -c ./config/storybook/"
   },
   "license": "ISC",
   "author": "Anton",
