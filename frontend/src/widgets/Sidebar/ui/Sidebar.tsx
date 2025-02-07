@@ -1,7 +1,7 @@
 import { classNames } from '../../../shared/helpers/classNames'
 import cls from './styles/Sidebar.module.scss'
 import { useState } from 'react'
-import BaseButton, { BaseButtonTheme } from '../../../shared/ui/Buttons/BaseButton/BaseButton'
+import BaseButton, { BaseButtonSize, BaseButtonTheme } from '../../../shared/ui/Buttons/BaseButton/BaseButton'
 import ThemeSwitcher from '../../ThemeSwitcher/ThemeSwitcher'
 import LangSwitcher from '../../LangSwitcher/ui/LangSwitcher'
 
@@ -16,8 +16,14 @@ const Sidebar = ({ className }: SidebarProps) => {
     }
     return (
         <div data-testid='sidebar' className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}>
-            <BaseButton onClick={setVisible} theme={BaseButtonTheme.CLEAR}>
-                toggle
+            <BaseButton
+                className={cls.collapseBtn}
+                onClick={setVisible}
+                theme={BaseButtonTheme.BACKGROUND}
+                square={true}
+                size={BaseButtonSize.XL}
+            >
+                {collapsed ? '>' : '<'}
             </BaseButton>
             <div className={cls.switchers}>
                 <ThemeSwitcher />

@@ -5,6 +5,13 @@ import { ButtonHTMLAttributes, FC } from 'react'
 export const enum BaseButtonTheme {
     CLEAR = 'clear',
     OUTLINE = 'outline',
+    BACKGROUND = 'background',
+}
+
+export const enum BaseButtonSize {
+    M = 'sizeM',
+    L = 'sizeL',
+    XL = 'sizeXl',
 }
 
 interface BaseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -12,19 +19,21 @@ interface BaseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     theme?: BaseButtonTheme
     primary?: boolean
     backgroundColor?: string
+    size?: string
+    square?: boolean
     onClick?: () => void
 }
 
 const BaseButton: FC<BaseButtonProps> = (props: BaseButtonProps) => {
-    const { className, theme, children, ...otherProps } = props
+    const { className, theme, children, size = BaseButtonSize.L, square, ...otherProps } = props
+    const mods: Record<string, boolean> = {
+        [cls[theme]]: true,
+        [cls.square]: square,
+        [cls[size]]: true,
+    }
 
     return (
-        <button
-            type='button'
-            className={classNames(cls.baseButton, { [cls[theme]]: true }, [className])}
-            style={{ backgroundColor: 'none' }}
-            {...otherProps}
-        >
+        <button type='button' className={classNames(cls.baseButton, mods, [className])} {...otherProps}>
             {children}
         </button>
     )
