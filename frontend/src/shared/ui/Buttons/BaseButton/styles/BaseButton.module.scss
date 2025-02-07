@@ -1,6 +1,5 @@
 .base-button {
   cursor: pointer;
-  background-color: (var());
 }
 
 .clear {
@@ -21,28 +20,36 @@
   line-height: 1;
 }
 
-.base-button--primary {
-  background-color: #555ab9;
-  color: white;
+.background {
+  background: var(--bg-color);
+  color: var(--primary-color);
+  border: none;
 }
 
-.base-button--secondary {
-  box-shadow: rgb(0 0 0 / 15%) 0 0 0 1px inset;
-  background-color: transparent;
-  color: #333;
+.square.size-m {
+  width: var(--font-line-m);
+  height: var(--font-line-m);
 }
 
-.base-button--small {
-  padding: 10px 16px;
-  font-size: 12px;
+.square.size-l {
+  width: var(--font-line-l);
+  height: var(--font-line-l);
 }
 
-.base-button--medium {
-  padding: 11px 20px;
-  font-size: 14px;
+.square.size-xl {
+  width: var(--font-line-xl);
+  height: var(--font-line-xl);
 }
 
-.base-button--large {
-  padding: 12px 24px;
-  font-size: 16px;
+.size_m {
+  font: var(--font-m);
 }
+
+.size_l {
+  font: var(--font-l);
+}
+
+.size_xl {
+  font: var(--font-xl);
+}
+

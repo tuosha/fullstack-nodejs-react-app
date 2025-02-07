@@ -3,7 +3,7 @@ import cls from '../styles/LangSwitcher.module.scss'
 import BaseButton, { BaseButtonTheme } from '../../../shared/ui/Buttons/BaseButton/BaseButton'
 import { useTranslation } from 'react-i18next'
 import RuLang from '../../../shared/assets/icons/translation/ru-language-icon.svg'
-import EngLang from '../../../shared/assets/icons/translation/eng-language-icon.svg'
+import EngLang from '../../../shared/assets/icons/translation/en-language-icon.svg'
 
 interface LangSwitcherProps {
     className?: string

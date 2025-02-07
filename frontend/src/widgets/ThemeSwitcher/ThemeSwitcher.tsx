@@ -13,7 +13,7 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
     const { theme, changeTheme } = useTheme()
     return (
         <BaseButton className={classNames('', {}, [className])} theme={BaseButtonTheme.CLEAR} onClick={changeTheme}>
-            {theme === MainTheme.DARK ? <DarkIcon /> : <LightIcon />}
+            {theme === MainTheme.DARK ? <LightIcon /> : <DarkIcon />}
         </BaseButton>
     )
 }
