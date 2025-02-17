@@ -2,19 +2,15 @@
   width: var(--sidebar-width);
   background-color: var(--bg-color);
   height: calc(100vh - var(--main-navbar-height));
-  transition: width 0.5s ease-in-out;
+  transition: width 0.9s ease-in-out;
   position: relative;
   text-align: left;
 }
 
 .collapse-btn {
   position: absolute;
-  right: -32px;
+  right: -42px;
   bottom: 32px;
-}
-
-.collapsed {
-  width: var(--sidebar-width-collapsed);
 }
 
 .switchers {
@@ -23,4 +19,15 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  gap: 10px;
 }
+
+.collapsed {
+  width: var(--sidebar-width-collapsed);
+
+  .switchers {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+

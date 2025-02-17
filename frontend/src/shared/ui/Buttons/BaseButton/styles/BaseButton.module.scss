@@ -1,5 +1,6 @@
 .base-button {
   cursor: pointer;
+  padding: 10px;
 }
 
 .clear {
@@ -12,10 +13,9 @@
 }
 
 .outline {
-  width: 100px;
   cursor: pointer;
-  border: 3px solid;
-  border-radius: 1em;
+  border: 1px solid black;
+  border-radius: 0.5em;
   font-weight: 200;
   line-height: 1;
 }
@@ -23,6 +23,12 @@
 .background {
   background: var(--bg-color);
   color: var(--primary-color);
+  border: none;
+}
+
+.background-inverted {
+  background: var(--inverted-bg-color);
+  color: var(--inverted-primary-color);
   border: none;
 }
 
