@@ -1,4 +1,4 @@
-import '../../../../app/styles/globals.scss'
+import '../../../../app/styles/index.scss'
 import { Component } from '@storybook/blocks'
 
 export const withGlobalImports = (Story: Component) => (

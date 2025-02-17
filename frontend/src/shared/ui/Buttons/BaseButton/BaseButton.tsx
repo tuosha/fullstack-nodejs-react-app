@@ -6,6 +6,7 @@ export const enum BaseButtonTheme {
     CLEAR = 'clear',
     OUTLINE = 'outline',
     BACKGROUND = 'background',
+    BACKGROUND_INVERTED = 'backgroundInverted',
 }
 
 export const enum BaseButtonSize {

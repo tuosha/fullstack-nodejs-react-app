@@ -21,7 +21,7 @@ const Sidebar = ({ className }: SidebarProps) => {
                 onClick={setVisible}
                 theme={BaseButtonTheme.BACKGROUND}
                 square={true}
-                size={BaseButtonSize.XL}
+                size={BaseButtonSize.L}
             >
                 {collapsed ? '>' : '<'}
             </BaseButton>
