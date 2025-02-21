@@ -14,12 +14,12 @@ const useGetRequest = (url: string, fn: TUseGetTypesFn) => {
                     return data ? setLoaded(true) : setLoaded(false)
                 })
                 .catch((err: string) => setError(err)),
-        [],
+        [data, fn, url],
     )
     useEffect(() => {
         const sendRequest = () => request()
         sendRequest()
-    }, [])
+    }, [request])
     return { data, loaded, error }
 }
 
