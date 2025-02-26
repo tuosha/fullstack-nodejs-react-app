@@ -1,9 +1,10 @@
 import { classNames } from '../../../shared/helpers/classNames'
 import cls from './styles/Sidebar.module.scss'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import BaseButton, { BaseButtonSize, BaseButtonTheme } from '../../../shared/ui/Buttons/BaseButton/BaseButton'
 import ThemeSwitcher from '../../ThemeSwitcher/ThemeSwitcher'
 import LangSwitcher from '../../LangSwitcher/ui/LangSwitcher'
+import AuthSwitcher from '../../AuthSwitcher/ui/AuthSwitcher'
 
 interface SidebarProps {
     className?: string
@@ -26,6 +27,7 @@ const Sidebar = ({ className }: SidebarProps) => {
                 {collapsed ? '>' : '<'}
             </BaseButton>
             <div className={cls.switchers}>
+                <AuthSwitcher />
                 <ThemeSwitcher />
                 <LangSwitcher />
             </div>

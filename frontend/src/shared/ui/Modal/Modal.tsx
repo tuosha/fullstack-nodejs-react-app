@@ -1,17 +1,18 @@
 import { classNames } from '../../helpers/classNames'
 import cls from './styles/Modal.module.scss'
 import React, { ReactNode, useCallback, useEffect, useRef, useState } from 'react'
+import Portal from '../Portal/Portal'
+import { useTheme } from '../../../app/providers/MainThemeProvider'
 
 interface ModalProps {
-    className?: string
     children?: ReactNode
     isOpen: boolean
     onClose: () => void
 }
 
 const Modal = (props: ModalProps) => {
-    const { className, children, isOpen, onClose } = props
-
+    const { children, isOpen, onClose } = props
+    const { theme } = useTheme()
     const [isClosing, setIsClosing] = useState<boolean>(false)
 
     const ANIMATION_DELAY = 200
@@ -57,13 +58,15 @@ const Modal = (props: ModalProps) => {
     }
 
     return (
-        <div className={classNames(cls.modal, mods, [className])}>
-            <div className={cls.overlay} onClick={onCloseHandler}>
-                <div className={cls.content} onClick={isContentClick}>
-                    {children}
+        <Portal>
+            <div className={classNames(cls.modal, mods, [theme])}>
+                <div className={cls.overlay} onClick={onCloseHandler}>
+                    <div className={cls.content} onClick={isContentClick}>
+                        {children}
+                    </div>
                 </div>
             </div>
-        </div>
+        </Portal>
     )
 }
 
