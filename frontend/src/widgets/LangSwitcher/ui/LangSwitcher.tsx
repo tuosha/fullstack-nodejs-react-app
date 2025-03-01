@@ -1,4 +1,4 @@
-import { classNames } from '../../../shared/helpers/classNames'
+import { classNames } from '../../../shared/helpers/classNames/classNames'
 import cls from '../styles/LangSwitcher.module.scss'
 import BaseButton, { BaseButtonTheme } from '../../../shared/ui/Buttons/BaseButton/BaseButton'
 import { useTranslation } from 'react-i18next'

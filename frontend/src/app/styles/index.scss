@@ -1,18 +1,3 @@
 @import "globals";
 @import "themes/light";
 @import "themes/dark";
-
-.app {
-  font: var(--font-s);
-  background: var(--bg-color);
-  color: var(--primary-color);
-  min-height: 100vh;
-}
-
-.app-component-wrapper {
-  display: flex;
-}
-
-.app-content-page {
-  flex-grow: 1;
-}

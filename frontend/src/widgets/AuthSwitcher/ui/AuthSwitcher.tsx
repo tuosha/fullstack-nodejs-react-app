@@ -1,4 +1,4 @@
-import { classNames } from '../../../shared/helpers/classNames'
+import { classNames } from '../../../shared/helpers/classNames/classNames'
 import cls from '../styles/AuthSwitcher.module.scss'
 import AuthIcon from '../../../shared/assets/icons/authorization/shield-user-icon.svg'
 import BaseButton, { BaseButtonTheme } from '../../../shared/ui/Buttons/BaseButton/BaseButton'
