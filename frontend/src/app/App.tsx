@@ -1,6 +1,6 @@
 import { useTheme } from './providers/MainThemeProvider'
 import React, { Suspense } from 'react'
-import { classNames } from '../shared/helpers/classNames'
+import { classNames } from '../shared/helpers/classNames/classNames'
 import cls from './styles/App.module.scss'
 import MainNavbar from '../widgets/MainNavbar'
 import Sidebar from '../widgets/Sidebar'
@@ -15,7 +15,7 @@ const App = ({ children }: IAppContentLayout) => {
     return (
         <ErrorBoundary>
             <Suspense fallback={<PageLoader />}>
-                <div className={classNames('app', {}, [theme])}>
+                <div className={classNames(cls.app, {}, [theme])}>
                     <MainNavbar />
                     <div className={cls.appComponentWrapper}>
                         <Sidebar />

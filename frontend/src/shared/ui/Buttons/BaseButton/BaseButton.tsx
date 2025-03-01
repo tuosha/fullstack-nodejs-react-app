@@ -1,4 +1,4 @@
-import { classNames } from '../../../helpers/classNames'
+import { classNames } from '../../../helpers/classNames/classNames'
 import cls from './styles/BaseButton.module.scss'
 import { ButtonHTMLAttributes, FC } from 'react'
 

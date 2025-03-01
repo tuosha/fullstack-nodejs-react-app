@@ -1,4 +1,4 @@
-import { classNames } from '../../shared/helpers/classNames'
+import { classNames } from '../../shared/helpers/classNames/classNames'
 import cls from './styles/RouterErrorPage.module.scss'
 import { isRouteErrorResponse, useRouteError } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'

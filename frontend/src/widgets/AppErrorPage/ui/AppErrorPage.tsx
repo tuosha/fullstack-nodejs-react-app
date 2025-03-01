@@ -1,5 +1,5 @@
 import cls from './AppErrorPage.module.scss'
-import { classNames } from '../../../shared/helpers/classNames'
+import { classNames } from '../../../shared/helpers/classNames/classNames'
 import BaseButton from '../../../shared/ui/Buttons/BaseButton/BaseButton'
 
 interface ErrorPageProps {
