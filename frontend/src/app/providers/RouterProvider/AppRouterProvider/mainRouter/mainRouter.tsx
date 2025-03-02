@@ -2,7 +2,15 @@ import { createBrowserRouter } from 'react-router-dom'
 import RouterErrorPage from '../../../../../widgets/RouterErrorPage/RouterErrorPage'
 import App from '../../../../App'
 
-const mainRouter = createBrowserRouter([
+const routerOptions = {
+    future: {
+        v7_fetcherPersist: true,
+        v7_normalizeFormMethod: true,
+        v7_relativeSplatPath: true,
+        v7_skipActionErrorRevalidation: true,
+    },
+}
+const roots = [
     {
         path: '/',
         element: <App />,
@@ -32,6 +40,8 @@ const mainRouter = createBrowserRouter([
             },
         ],
     },
-])
+]
+
+const mainRouter = createBrowserRouter(roots, routerOptions)
 
 export default mainRouter
