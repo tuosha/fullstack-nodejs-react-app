@@ -1,7 +1,8 @@
 import { InputTextAreaProps } from '../../types/InputsTypes'
 import { defaultInputTextAreaProps } from './defaultValues/defaultValues'
+import { FC } from 'react'
 
-const InputTextArea: React.FC<InputTextAreaProps> = ({ options }: InputTextAreaProps) => {
+const InputTextArea: FC<InputTextAreaProps> = ({ options }: InputTextAreaProps) => {
     options = { ...defaultInputTextAreaProps.options, ...options }
     const {
         id,

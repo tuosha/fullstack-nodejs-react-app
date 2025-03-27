@@ -2,8 +2,8 @@ import { classNames } from '../../../shared/helpers/classNames/classNames'
 import cls from '../styles/AuthSwitcher.module.scss'
 import AuthIcon from '../../../shared/assets/icons/authorization/shield-user-icon.svg'
 import BaseButton, { BaseButtonTheme } from '../../../shared/ui/Buttons/BaseButton/BaseButton'
-import Modal from '../../../shared/ui/Modal/Modal'
 import React, { useState } from 'react'
+import { LoginModal } from '../../../features/AuthByUsername'
 
 interface AuthSwitcherProps {
     className?: string
@@ -20,9 +20,7 @@ const AuthSwitcher = ({ className }: AuthSwitcherProps) => {
             >
                 <AuthIcon />
             </BaseButton>
-            <Modal isOpen={isOpen} onClose={() => toggleOpen(false)}>
-                Много текста много текта много кекса
-            </Modal>
+            <LoginModal isOpen={isOpen} onClose={() => toggleOpen(false)} />
         </>
     )
 }

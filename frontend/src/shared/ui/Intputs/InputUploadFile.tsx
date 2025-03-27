@@ -1,7 +1,8 @@
 import { InputUploadFileProps } from '../../types/InputsTypes'
 import { defaultInputUploadFileProps } from './defaultValues/defaultValues'
+import { FC } from 'react'
 
-const InputUploadFile: React.FC<InputUploadFileProps> = ({ onFileChange, options }: InputUploadFileProps) => {
+const InputUploadFile: FC<InputUploadFileProps> = ({ onFileChange, options }: InputUploadFileProps) => {
     options = { ...defaultInputUploadFileProps.options, ...options }
     const { id, isLabel, inputGroupClassName, inputClassName, labelClassName, labelTitle } = options
     const label = isLabel ? (
