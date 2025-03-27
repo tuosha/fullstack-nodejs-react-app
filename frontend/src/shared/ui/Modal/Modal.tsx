@@ -6,18 +6,26 @@ import { useTheme } from '../../../app/providers/MainThemeProvider'
 
 interface ModalProps {
     children?: ReactNode
-    isOpen: boolean
-    onClose: () => void
+    className?: string
+    isOpen?: boolean
+    onClose?: () => void
+    lazy: boolean
 }
 
 const Modal = (props: ModalProps) => {
-    const { children, isOpen, onClose } = props
+    const { children, isOpen, onClose, lazy } = props
     const { theme } = useTheme()
     const [isClosing, setIsClosing] = useState<boolean>(false)
-
+    const [isMounted, setIsMounted] = useState(false)
     const ANIMATION_DELAY = 200
 
     const timerRef = useRef<ReturnType<typeof setTimeout>>()
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true)
+        }
+    }, [isOpen])
 
     const onCloseHandler = useCallback(() => {
         if (onClose) {
@@ -56,7 +64,9 @@ const Modal = (props: ModalProps) => {
         [cls.isOpen]: isOpen,
         [cls.isClosing]: isClosing,
     }
-
+    if (lazy && !isMounted) {
+        return null
+    }
     return (
         <Portal>
             <div className={classNames(cls.modal, mods, [theme])}>
