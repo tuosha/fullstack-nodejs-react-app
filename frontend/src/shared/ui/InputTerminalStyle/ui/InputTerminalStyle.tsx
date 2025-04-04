@@ -5,7 +5,7 @@ import Input from '../../Input'
 import { classNames } from '../../../helpers/classNames/classNames'
 
 const InputTerminalStyle = (props: InputProps) => {
-    const { className, placeholder, isLabel, labelTxt, autofocus } = props
+    const { className, placeholder, isLabel, labelTxt, onChange, value, autofocus } = props
     const [caretPosition, setCaretPosition] = useState(0)
     const [isFocus, setFocus] = useState(false)
     const onFocus = () => {
@@ -29,6 +29,8 @@ const InputTerminalStyle = (props: InputProps) => {
                 onBlur={onBlur}
                 onSelect={onSelect}
                 autoFocus={autofocus}
+                onChange={onChange}
+                value={value}
             />
             {isFocus && <span className={cls.caret} style={{ left: `${caretPosition * 7.5}px` }}></span>}
         </div>

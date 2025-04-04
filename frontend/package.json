@@ -19,8 +19,8 @@
     "clean": "rd /s /q dist",
     "storybook": "storybook dev -p 6006 -c ./config/storybook/",
     "storybook:build": "storybook build -c ./config/storybook/",
-	"json-server:global": "npx json-server --watch ./json-server/db.json --port=8001",
-	"json-server:local": "node ./json-server/index.js"
+    "json-server:global": "npx json-server --watch ./json-server/db.json --port=8001",
+    "json-server:local": "node ./json-server/index.js"
   },
   "license": "ISC",
   "author": "Anton",
@@ -87,7 +87,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.0",
-    "axios": "^1.7.7",
+    "axios": "^1.8.4",
     "i18next": "^24.2.0",
     "i18next-browser-languagedetector": "^8.0.2",
     "i18next-http-backend": "^3.0.1",
@@ -95,7 +95,8 @@
     "react-dom": "^18.3.1",
     "react-i18next": "^15.2.0",
     "react-redux": "^9.2.0",
-    "react-router-dom": "^6.27.0"
+    "react-router-dom": "^6.27.0",
+    "url": "^0.11.4"
   },
   "eslintConfig": {
     "extends": [
