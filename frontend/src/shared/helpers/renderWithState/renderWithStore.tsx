@@ -3,7 +3,7 @@ import { render } from '@testing-library/react'
 import { I18nextProvider } from 'react-i18next'
 import i18nForTests from '../../config/i18n/i18nForTests'
 import { StoreProvider } from '../../../app/providers/StoreProvider'
-import { StateScheme } from '../../../app/providers/StoreProvider/config/StateScheme'
+import { StateScheme } from '../../../app/providers/StoreProvider'
 
 export interface renderWithStoreOptions {
     initialState?: StateScheme

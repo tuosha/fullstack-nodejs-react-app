@@ -6,7 +6,7 @@ import { withThemeDecorator } from '../../../config/storybooks/decorators/withTh
 import { MainTheme } from '../../../../app/providers/MainThemeProvider'
 
 const meta = {
-    title: 'Base Button',
+    title: 'UI/Buttons',
     component: BaseButton,
     parameters: {
         layout: 'centered',

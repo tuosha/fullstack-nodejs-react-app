@@ -22,19 +22,26 @@ interface BaseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     backgroundColor?: string
     size?: string
     square?: boolean
+    disabled?: boolean
     onClick?: () => void
 }
 
 const BaseButton: FC<BaseButtonProps> = (props: BaseButtonProps) => {
-    const { className, theme, children, size = BaseButtonSize.L, square, ...otherProps } = props
+    const { className, theme, children, size = BaseButtonSize.L, disabled = false, square, ...otherProps } = props
     const mods: Record<string, boolean> = {
         [cls[theme]]: true,
         [cls.square]: square,
         [cls[size]]: true,
+        [cls.disabled]: disabled,
     }
 
     return (
-        <button type='button' className={classNames(cls.baseButton, mods, [className])} {...otherProps}>
+        <button
+            type='button'
+            disabled={disabled}
+            className={classNames(cls.baseButton, mods, [className])}
+            {...otherProps}
+        >
             {children}
         </button>
     )

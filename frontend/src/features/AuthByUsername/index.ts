@@ -1,5 +1,5 @@
 import { LoginModal } from './ui/LoginModal/LoginModal'
 import { LoginForm } from './ui/LoginForm/LoginForm'
-import { StateScheme } from '../../app/providers/StoreProvider/config/StateScheme'
+import { LoginScheme } from './types/loginScheme'
 
-export { LoginModal, LoginForm, StateScheme }
+export { LoginModal, LoginForm, LoginScheme }

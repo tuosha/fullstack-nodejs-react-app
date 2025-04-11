@@ -8,6 +8,7 @@ import { authActions } from '../../slice/authSlice'
 import { authSelectorState } from '../../selectors/authSelectorState'
 import { loginByUsername } from '../../services/loginByUsername'
 import { UnknownAction } from '@reduxjs/toolkit'
+import Text, { TextTheme } from '../../../../shared/ui/Text/Text'
 
 interface LoginFormProps {
     className?: string
@@ -15,7 +16,7 @@ interface LoginFormProps {
 
 export const LoginForm = memo(({ className }: LoginFormProps) => {
     const dispatch = useDispatch()
-    const { username, password } = useSelector(authSelectorState)
+    const { username, password, isLoading, error } = useSelector(authSelectorState)
     const onChangeUsername = useCallback(
         (value: string) => {
             dispatch(authActions.setUsername(value))
@@ -34,6 +35,7 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
 
     return (
         <div className={classNames(cls.loginForm, {}, [className])}>
+            {error && <Text title={error.message} theme={TextTheme.ERROR} text={'Ошибка авторизации'} />}
             <InputTerminalStyle
                 className={cls.loginInput}
                 onChange={onChangeUsername}
@@ -55,6 +57,7 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
             />
             <BaseButton
                 theme={BaseButtonTheme.OUTLINE}
+                disabled={isLoading}
                 className={cls.loginBtn}
                 size={BaseButtonSize.M}
                 onClick={onAuthClick}

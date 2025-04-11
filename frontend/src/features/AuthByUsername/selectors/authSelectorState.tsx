@@ -1,3 +1,3 @@
-import { StateScheme } from '../../../app/providers/StoreProvider/config/StateScheme'
+import { StateScheme } from '../../../app/providers/StoreProvider'
 
 export const authSelectorState = (state: StateScheme) => state.authForm
