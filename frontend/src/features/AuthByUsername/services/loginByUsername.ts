@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import axios from 'axios'
+import axios, { AxiosError } from 'axios'
 import { UserScheme } from '../../../entites/User'
 
 interface LoginProps {
@@ -7,7 +7,7 @@ interface LoginProps {
     password: string
 }
 
-export const loginByUsername = createAsyncThunk<UserScheme, LoginProps, { rejectValue: string }>(
+export const loginByUsername = createAsyncThunk<UserScheme, LoginProps, { rejectValue: Error | AxiosError }>(
     'users/loginByUsername',
     async (authData, thunkAPI) => {
         try {
