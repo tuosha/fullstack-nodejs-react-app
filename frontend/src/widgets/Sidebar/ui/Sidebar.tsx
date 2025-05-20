@@ -19,7 +19,6 @@ const Sidebar = ({ className }: SidebarProps) => {
         setCollapsed((prev) => !prev)
     }
     const authData = useSelector(getUserAuthData)
-
     const dispatch = useDispatch()
     const logout = () => dispatch(userActions.logoutAuth())
     const authorized = authData ? (

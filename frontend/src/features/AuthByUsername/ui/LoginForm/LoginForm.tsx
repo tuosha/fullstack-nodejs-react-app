@@ -2,21 +2,39 @@ import { classNames } from '../../../../shared/helpers/classNames/classNames'
 import cls from './styles/LoginForm.module.scss'
 import BaseButton, { BaseButtonSize, BaseButtonTheme } from '../../../../shared/ui/Buttons/BaseButton/BaseButton'
 import InputTerminalStyle from '../../../../shared/ui/InputTerminalStyle/ui/InputTerminalStyle'
-import { memo, useCallback } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { authActions } from '../../slice/authSlice'
-import { authSelectorState } from '../../selectors/authSelectorState'
+import { memo, useCallback, useEffect } from 'react'
+import { useDispatch, useSelector, useStore } from 'react-redux'
+import { authActions, authReducer } from '../../slice/authSlice'
 import { loginByUsername } from '../../services/loginByUsername'
 import { UnknownAction } from '@reduxjs/toolkit'
 import Text, { TextTheme } from '../../../../shared/ui/Text/Text'
+import { StoreWithReducerManager } from '../../../../app/providers/StoreProvider/config/StateScheme'
+import { userNameSelectorState } from '../../selectors/userNameSelectorState'
+import { passwordSelectorState } from '../../selectors/passwordSelectorState'
+import { isLoadingSelectorState } from '../../selectors/isLoadingSelectorState'
+import { errorSelectorState } from '../../selectors/errorSelectorState'
 
-interface LoginFormProps {
+export interface LoginFormProps {
     className?: string
 }
 
-export const LoginForm = memo(({ className }: LoginFormProps) => {
+const LoginForm = memo(({ className }: LoginFormProps) => {
     const dispatch = useDispatch()
-    const { username, password, isLoading, error } = useSelector(authSelectorState)
+    const username = useSelector(userNameSelectorState)
+    const password = useSelector(passwordSelectorState)
+    const isLoading = useSelector(isLoadingSelectorState)
+    const error = useSelector(errorSelectorState)
+    const store = useStore() as StoreWithReducerManager
+
+    useEffect(() => {
+        store.reducerManager.add('authForm', authReducer)
+        dispatch({ type: 'INIT AUTH' })
+        return () => {
+            store.reducerManager.remove('authForm')
+            dispatch({ type: 'DESTROY AUTH' })
+        }
+    }, [dispatch, store.reducerManager])
+
     const onChangeUsername = useCallback(
         (value: string) => {
             dispatch(authActions.setUsername(value))
@@ -67,3 +85,5 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
         </div>
     )
 })
+
+export default LoginForm

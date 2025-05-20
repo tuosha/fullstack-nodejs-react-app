@@ -20,7 +20,7 @@ const AuthSwitcher = ({ className }: AuthSwitcherProps) => {
             >
                 <AuthIcon />
             </BaseButton>
-            <LoginModal isOpen={isOpen} onClose={() => toggleOpen(false)} />
+            {isOpen && <LoginModal isOpen={isOpen} onClose={() => toggleOpen(false)} />}
         </>
     )
 }
