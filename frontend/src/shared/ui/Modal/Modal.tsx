@@ -4,12 +4,12 @@ import React, { ReactNode, useCallback, useEffect, useRef, useState } from 'reac
 import Portal from '../Portal/Portal'
 import { useTheme } from '../../../app/providers/MainThemeProvider'
 
-interface ModalProps {
+export interface ModalProps {
     children?: ReactNode
     className?: string
     isOpen?: boolean
     onClose?: () => void
-    lazy: boolean
+    lazy?: boolean
 }
 
 const Modal = (props: ModalProps) => {

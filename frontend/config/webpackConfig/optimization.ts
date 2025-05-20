@@ -5,7 +5,7 @@ import { IBuildOptions } from './types/configTypes'
 
 const optimization = ({ isProd }: IBuildOptions) => {
     const config: webpack.Configuration['optimization'] = {
-        runtimeChunk: 'single',
+        runtimeChunk: true,
         splitChunks: {
             chunks: 'all',
         },
