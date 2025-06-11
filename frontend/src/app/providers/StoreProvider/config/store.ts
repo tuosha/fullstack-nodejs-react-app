@@ -1,8 +1,12 @@
-import { configureStore, ReducersMapObject } from '@reduxjs/toolkit'
+import { Action, configureStore, EnhancedStore, ReducersMapObject, ThunkDispatch } from '@reduxjs/toolkit'
 import { StateScheme } from './StateScheme'
 import { counterReducer } from '../../../../entites/Counter'
 import { userReducer } from '../../../../entites/User'
 import { createReducerManager } from '../../../../shared/helpers/createReducerManager/createReducerManager'
+
+interface ExtendedStore extends EnhancedStore<StateScheme> {
+    reducerManager: ReturnType<typeof createReducerManager>
+}
 
 export function createReduxStore(initState: StateScheme) {
     const rootReducers: ReducersMapObject<StateScheme> = {
@@ -11,7 +15,7 @@ export function createReduxStore(initState: StateScheme) {
     }
 
     const reducerManager = createReducerManager(rootReducers)
-    const store = configureStore<StateScheme>({
+    const store = configureStore({
         reducer: reducerManager.reduce,
         devTools: __IS_DEV,
         preloadedState: initState,
@@ -19,10 +23,13 @@ export function createReduxStore(initState: StateScheme) {
             getDefaultMiddleware({
                 serializableCheck: false,
             }),
-    })
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
+    }) as ExtendedStore
+
     store.reducerManager = reducerManager
 
     return store
 }
+
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
+export type RootState = ReturnType<typeof createReduxStore>['getState']
+export type AppThunkDispatch = ThunkDispatch<RootState, unknown, Action>

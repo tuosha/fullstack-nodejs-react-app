@@ -3,16 +3,17 @@ import cls from './styles/LoginForm.module.scss'
 import BaseButton, { BaseButtonSize, BaseButtonTheme } from '../../../../shared/ui/Buttons/BaseButton/BaseButton'
 import InputTerminalStyle from '../../../../shared/ui/InputTerminalStyle/ui/InputTerminalStyle'
 import { memo, useCallback } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { authActions, authReducer } from '../../slice/authSlice'
 import { loginByUsername } from '../../services/loginByUsername'
-import { UnknownAction } from '@reduxjs/toolkit'
 import Text, { TextTheme } from '../../../../shared/ui/Text/Text'
 import { userNameSelectorState } from '../../selectors/userNameSelectorState/userNameSelectorState'
 import { passwordSelectorState } from '../../selectors/passwordSelectorState/passwordSelectorState'
 import { isLoadingSelectorState } from '../../selectors/isLoadingSelectorState/isLoadingSelectorState'
 import { errorSelectorState } from '../../selectors/errorSelectorState/errorSelectorState'
 import DynamicModuleLoader, { ReducersNamesList } from '../../../../shared/lib/DynamicModuleLoader/DynamicModuleLoader'
+import { useAppDispatch } from '../../../../shared/hooks/useAppDispatch/useAppDispatch'
+import { useAppThunkDispatch } from '../../../../shared/hooks/useAppThunkDispatch/useAppThunkDispatch'
 
 export interface LoginFormProps {
     className?: string
@@ -20,7 +21,8 @@ export interface LoginFormProps {
 
 const LoginForm = memo(({ className }: LoginFormProps) => {
     const initReducers: ReducersNamesList = { authForm: authReducer }
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
+    const thunkDispatch = useAppThunkDispatch()
     const username = useSelector(userNameSelectorState)
     const password = useSelector(passwordSelectorState)
     const isLoading = useSelector(isLoadingSelectorState)
@@ -38,9 +40,11 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
         },
         [dispatch],
     )
-    const onAuthClick = useCallback(() => {
-        dispatch(loginByUsername({ username, password }) as unknown as UnknownAction)
-    }, [dispatch, username, password])
+    const onAuthClick = useCallback(async () => {
+        // const result = dispatch(loginByUsername({ username, password }) as unknown as UnknownAction)
+        const response = await thunkDispatch(loginByUsername({ username, password }))
+        return response
+    }, [thunkDispatch, username, password])
 
     return (
         <DynamicModuleLoader reducers={initReducers} removeAfterUnmount>
