@@ -1,0 +1,16 @@
+.item .text {
+  margin-right: 10px;
+  color: var(--primary-color)
+}
+
+.item .icon {
+  fill: var(--inverted-bg-color);
+}
+
+.collapsed {
+  .text {
+    opacity: 0;
+    transition: 0.2s opacity;
+    width: 0;
+  }
+}

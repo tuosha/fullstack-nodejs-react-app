@@ -38,6 +38,15 @@ const roots = [
                     }
                 },
             },
+            {
+                path: '/profile-page',
+                lazy: async () => {
+                    const ProfilePage = (await import('../../../../../pages/ProfilePage')).default
+                    return {
+                        element: <ProfilePage />,
+                    }
+                },
+            },
         ],
     },
 ]

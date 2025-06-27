@@ -4,12 +4,13 @@ import BaseButton, { BaseButtonTheme } from '../../../shared/ui/Buttons/BaseButt
 import { useTranslation } from 'react-i18next'
 import RuLang from '../../../shared/assets/icons/translation/ru-language-icon.svg'
 import EngLang from '../../../shared/assets/icons/translation/en-language-icon.svg'
+import { memo } from 'react'
 
 interface LangSwitcherProps {
     className?: string
 }
 
-const LangSwitcher = ({ className }: LangSwitcherProps) => {
+const LangSwitcher = memo(({ className }: LangSwitcherProps) => {
     const { i18n } = useTranslation()
     const lang = i18n.language === 'eng' ? 'ru' : 'eng'
     const toggleLang = () => {
@@ -24,6 +25,6 @@ const LangSwitcher = ({ className }: LangSwitcherProps) => {
             {lang === 'ru' ? <RuLang /> : <EngLang />}
         </BaseButton>
     )
-}
+})
 
 export default LangSwitcher

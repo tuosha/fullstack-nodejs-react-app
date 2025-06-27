@@ -25,5 +25,11 @@
 	  "password": "123"
 	}
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+	"firstName": "Toho",
+	"lastName": "Oho",
+	"age": 30,
+	"country": "Russia",
+	"username": "admin"
+  }
 }
