@@ -30,6 +30,8 @@
 	"lastName": "Oho",
 	"age": 30,
 	"country": "Russia",
-	"username": "admin"
+	"city": "Moscow",
+	"username": "admin",
+	"avatar": "https://toha.jopeg"
   }
 }

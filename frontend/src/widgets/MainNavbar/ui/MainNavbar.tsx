@@ -2,8 +2,9 @@ import cls from './styles/MainNavbar.module.scss'
 import { classNames } from '../../../shared/helpers/classNames/classNames'
 import AppLink from '../../../shared/ui/AppLink/AppLink'
 import { useTranslation } from 'react-i18next'
+import { memo } from 'react'
 
-const MainNavbar = () => {
+const MainNavbar = memo(() => {
     const { t } = useTranslation('mainNavbarTrs')
     return (
         <div className={classNames(cls.mainNavbar, {}, [])}>
@@ -14,6 +15,6 @@ const MainNavbar = () => {
             <AppLink to={'/planned-books'}>{t('Просмотренные фильмы')}</AppLink>
         </div>
     )
-}
+})
 
 export default MainNavbar
