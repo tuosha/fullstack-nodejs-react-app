@@ -23,9 +23,8 @@ const Sidebar = memo(({ className }: SidebarProps) => {
     const authData = useSelector(getUserAuthData)
     const dispatch = useDispatch()
     const logout = () => dispatch(userActions.logoutAuth())
-    const itemsList = SideBarItemsList.map((item) => {
-        return <SidebarItem key={item.path} item={item} collapsed={collapsed} />
-    })
+    const itemsList = SideBarItemsList.map((item) => <SidebarItem key={item.path} item={item} collapsed={collapsed} />)
+
     const authorized = authData ? (
         <>
             {<Text title={`Привет, ${authData.username}`} text={`Привет, ${authData.username}`} />}

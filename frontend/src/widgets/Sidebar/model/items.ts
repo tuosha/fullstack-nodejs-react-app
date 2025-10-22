@@ -11,12 +11,12 @@ export type SideBarItemsListType = {
 export const SideBarItemsList: SideBarItemsListType[] = [
     {
         path: '/',
-        text: 'Home',
+        text: 'Главная',
         icon: Home,
     },
     {
         path: '/profile-page',
-        text: 'Profile',
+        text: 'Профиль',
         icon: Profile,
     },
 ]

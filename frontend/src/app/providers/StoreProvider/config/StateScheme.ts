@@ -2,10 +2,12 @@ import { CounterScheme } from '../../../../entites/Counter'
 import { UserScheme } from '../../../../entites/User'
 import { LoginScheme } from '../../../../features/AuthByUsername'
 import { Action, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit'
+import { ProfileScheme } from '../../../../entites/Profile'
 
 export interface StateScheme {
     counter?: CounterScheme
     user?: UserScheme
+    profile?: ProfileScheme
     authForm?: LoginScheme
 }
 
