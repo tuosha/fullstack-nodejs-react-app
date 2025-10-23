@@ -15,12 +15,10 @@ export interface renderWithStoreOptions {
 export function renderWithStore(component: ReactNode, options: renderWithStoreOptions = {}) {
     const { initialState, initialEntries = ['/'], basename = '/' } = options
     return render(
-        <StoreProvider initialState={initialState}>
-            <I18nextProvider i18n={i18nForTests}>
-                <MemoryRouter initialEntries={initialEntries} basename={basename}>
-                    {component}
-                </MemoryRouter>
-            </I18nextProvider>
-        </StoreProvider>,
+        <I18nextProvider i18n={i18nForTests}>
+            <MemoryRouter initialEntries={initialEntries} basename={basename}>
+                <StoreProvider initialState={initialState}>{component}</StoreProvider>
+            </MemoryRouter>
+        </I18nextProvider>,
     )
 }
