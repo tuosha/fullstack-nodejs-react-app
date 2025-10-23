@@ -3,12 +3,19 @@ import { StateScheme } from './StateScheme'
 import { counterReducer } from '../../../../entites/Counter'
 import { userReducer } from '../../../../entites/User'
 import { createReducerManager } from '../../../../shared/helpers/createReducerManager/createReducerManager'
+import { NavigateOptions } from 'react-router-dom'
+import { AxiosInstance } from 'axios'
+
+export interface Extra {
+    api?: AxiosInstance
+    navigate?: (to: string | number, options?: NavigateOptions) => void
+}
 
 interface ExtendedStore extends EnhancedStore<StateScheme> {
     reducerManager: ReturnType<typeof createReducerManager>
 }
 
-export function createReduxStore(initState: StateScheme) {
+export function createReduxStore(initState: StateScheme, extra: Extra) {
     const rootReducers: ReducersMapObject<StateScheme> = {
         counter: counterReducer,
         user: userReducer,
@@ -22,6 +29,9 @@ export function createReduxStore(initState: StateScheme) {
         middleware: (getDefaultMiddleware) =>
             getDefaultMiddleware({
                 serializableCheck: false,
+                thunk: {
+                    extraArgument: extra,
+                },
             }),
     }) as ExtendedStore
 

@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom'
 import RouterErrorPage from '../../../../../widgets/RouterErrorPage/RouterErrorPage'
 import App from '../../../../App'
+import { StoreProvider } from '../../../StoreProvider'
 
 const routerOptions = {
     future: {
@@ -13,7 +14,11 @@ const routerOptions = {
 const roots = [
     {
         path: '/',
-        element: <App />,
+        element: (
+            <StoreProvider>
+                <App />
+            </StoreProvider>
+        ),
         errorElement: (
             <App>
                 <RouterErrorPage />
