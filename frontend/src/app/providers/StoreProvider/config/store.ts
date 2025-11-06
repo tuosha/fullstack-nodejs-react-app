@@ -5,6 +5,7 @@ import { userReducer } from '../../../../entites/User'
 import { createReducerManager } from '../../../../shared/helpers/createReducerManager/createReducerManager'
 import { NavigateOptions } from 'react-router-dom'
 import { AxiosInstance } from 'axios'
+import { useDispatch } from 'react-redux'
 
 export interface Extra {
     api?: AxiosInstance
@@ -42,4 +43,4 @@ export function createReduxStore(initState: StateScheme, extra: Extra) {
 
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
 export type RootState = ReturnType<typeof createReduxStore>['getState']
-export type AppThunkDispatch = ThunkDispatch<RootState, unknown, Action>
+export type AppThunkDispatch = ThunkDispatch<RootState, Extra, Action>

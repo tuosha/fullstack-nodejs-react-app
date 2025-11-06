@@ -25,7 +25,7 @@ export const loginByUsername = createAsyncThunk<
         }
         localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(response.data))
         dispatch(userActions.setAuthData(response.data))
-        extra.navigate('/profile-page')
+        extra.navigate('/profile')
         return response.data
     } catch (error) {
         if (axios.isAxiosError(error)) {

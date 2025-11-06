@@ -44,7 +44,7 @@ const roots = [
                 },
             },
             {
-                path: '/profile-page',
+                path: '/profile',
                 lazy: async () => {
                     const ProfilePage = (await import('../../../../../pages/ProfilePage')).default
                     return {

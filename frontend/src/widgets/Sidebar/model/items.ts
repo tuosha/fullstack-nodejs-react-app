@@ -15,7 +15,7 @@ export const SideBarItemsList: SideBarItemsListType[] = [
         icon: Home,
     },
     {
-        path: '/profile-page',
+        path: '/profile',
         text: 'Профиль',
         icon: Profile,
     },
