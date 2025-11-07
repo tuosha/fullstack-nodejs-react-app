@@ -20,7 +20,9 @@
     "storybook": "storybook dev -p 6006 -c ./config/storybook/",
     "storybook:build": "storybook build -c ./config/storybook/",
     "json-server:global": "npx json-server --watch ./json-server/db.json --port=8001",
-    "json-server:local": "node ./json-server/index.js"
+    "json-server:local": "node ./json-server/index.js",
+	"dev:backend": "cd ../backend && npm start",
+	"dev:full": "concurrently \"npm run json-server:local\" \"npm run lint\" \"npm run dev:backend\""
   },
   "license": "ISC",
   "author": "Anton",
@@ -52,6 +54,7 @@
     "@typescript-eslint/parser": "^8.5.0",
     "babel-jest": "^29.7.0",
     "babel-loader": "^9.2.1",
+    "concurrently": "^9.2.1",
     "cross-env": "^7.0.3",
     "css-loader": "^7.1.2",
     "css-minimizer-webpack-plugin": "^7.0.0",
